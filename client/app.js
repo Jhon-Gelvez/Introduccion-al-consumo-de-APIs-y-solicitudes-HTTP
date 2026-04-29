@@ -6,6 +6,7 @@ import {
     comment
     } 
 from "./apropiacion/index.js";
+import { enunciado1 } from "./transferencia/ejercicio1.js";
 
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
@@ -53,5 +54,7 @@ try {
 } catch (error) {
     console.error(error);
 }
+
+enunciado1();
 
 rl.close();
