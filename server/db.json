@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "nombre": "No se",
+      "name": "No se",
       "email": "@algo",
       "id": "1"
     },
@@ -178,6 +178,24 @@
       "name": "comentario",
       "body": "comentario",
       "id": "WThDOURLooE"
+    },
+    {
+      "postId": "",
+      "name": "",
+      "body": "",
+      "id": "KfYxaWYD6po"
+    },
+    {
+      "postId": "",
+      "name": "",
+      "body": "",
+      "id": "cXc_FdCmZBk"
+    },
+    {
+      "postId": "",
+      "name": "",
+      "body": "",
+      "id": "pX0f31p2uNw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
