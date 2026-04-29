@@ -172,6 +172,12 @@
       "postId": 9,
       "name": "Comentario 10",
       "body": "Los códigos HTTP son importantes."
+    },
+    {
+      "postId": "2",
+      "name": "comentario",
+      "body": "comentario",
+      "id": "WThDOURLooE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
