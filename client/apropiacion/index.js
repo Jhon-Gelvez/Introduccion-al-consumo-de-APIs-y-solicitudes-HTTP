@@ -1,1 +1,1 @@
-export { solicitudesGet } from "./ejercicio1.js";
+export { usuarios, usuario, posts } from "./ejercicio1.js";
