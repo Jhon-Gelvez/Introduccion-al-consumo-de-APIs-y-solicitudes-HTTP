@@ -6,7 +6,12 @@ import {
     comment
     } 
 from "./apropiacion/index.js";
-import { enunciado1 } from "./transferencia/ejercicio1.js";
+
+import { 
+    enunciado1,
+    publicaciones
+    } 
+from "./transferencia/index.js";
 
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
@@ -55,6 +60,16 @@ try {
     console.error(error);
 }
 
-enunciado1();
+try {
+    enunciado1()
+} catch (error) {
+    console.error(error)
+}
+
+try {
+    publicaciones()
+} catch (error) {
+    console.error(error)
+}
 
 rl.close();
