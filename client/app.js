@@ -14,9 +14,8 @@ import {
     publicaciones
     } 
 from "./transferencia/index.js";
-import { comment } from "./peticiones.js";
-import readline from "node:readline/promises";
-import { stdin as input, stdout as output } from "node:process";
+
+
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 
@@ -76,9 +75,6 @@ try {
     console.error(error)
 }
 
-
-const rl = readline.createInterface({ input, output });
-
 const ejecutar = async () => {
     try {
         const postId = await rl.question("Ingrese el ID del post: ");
@@ -93,7 +89,6 @@ const ejecutar = async () => {
     }
 };
 
-ejecutar();
 
 rl.close();
 
