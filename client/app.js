@@ -3,7 +3,9 @@ import {
     usuarios,
     posts,
     post,
-    comment
+    comment,
+    actualizarPostPATCH,
+    actualizarPostPUT
     } 
 from "./apropiacion/index.js";
 
@@ -73,3 +75,28 @@ try {
 }
 
 rl.close();
+
+import { comment } from "./peticiones.js";
+import readline from "node:readline/promises";
+import { stdin as input, stdout as output } from "node:process";
+
+const rl = readline.createInterface({ input, output });
+
+const ejecutar = async () => {
+    try {
+        const postId = await rl.question("Ingrese el ID del post: ");
+        const nombre = await rl.question("Ingrese el nombre: ");
+        const comentario = await rl.question("Ingrese el comentario: ");
+
+        const data = await comment(postId, nombre, comentario);
+        console.log(data);
+
+    } catch (error) {
+        console.error(error);
+    } finally {
+        rl.close();
+    }
+};
+
+ejecutar();
+
