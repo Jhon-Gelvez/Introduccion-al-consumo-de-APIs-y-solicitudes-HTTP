@@ -12,7 +12,8 @@ import {
     } from "./apropiacion/index.js";
 import { 
     enunciado1, 
-    publicaciones 
+    publicaciones,
+    obtenerInfoPublicacion 
 } from "./transferencia/index.js";
 
 import readline from "node:readline/promises";
@@ -89,6 +90,14 @@ try {
 }
 
 // TRANSFERENCIA
+
+try {
+    const id = await rl.question("Ingrese el ID de la publicación: ");
+    const data = await obtenerInfoPublicacion(id);
+    console.log(data);
+} catch (error) {
+    console.error(error);
+}
 
 try {
     await enunciado1();
