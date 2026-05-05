@@ -73,9 +73,6 @@ try {
 } catch (error) {
     console.error(error)
 }
-
-rl.close();
-
 import { comment } from "./peticiones.js";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
@@ -99,4 +96,7 @@ const ejecutar = async () => {
 };
 
 ejecutar();
+
+rl.close();
+
 
