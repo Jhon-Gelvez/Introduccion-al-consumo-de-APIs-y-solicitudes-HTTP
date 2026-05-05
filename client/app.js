@@ -14,7 +14,9 @@ import {
     publicaciones
     } 
 from "./transferencia/index.js";
-
+import { comment } from "./peticiones.js";
+import readline from "node:readline/promises";
+import { stdin as input, stdout as output } from "node:process";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 
@@ -73,9 +75,7 @@ try {
 } catch (error) {
     console.error(error)
 }
-import { comment } from "./peticiones.js";
-import readline from "node:readline/promises";
-import { stdin as input, stdout as output } from "node:process";
+
 
 const rl = readline.createInterface({ input, output });
 
@@ -90,8 +90,6 @@ const ejecutar = async () => {
 
     } catch (error) {
         console.error(error);
-    } finally {
-        rl.close();
     }
 };
 
