@@ -1,6 +1,5 @@
 import { usuario, usuarios, posts, post, comment, actualizarPostPATCH, actualizarPostPUT } from "./apropiacion/index.js";
-
-import { enunciado1, publicaciones } from "./transferenciaindex.js";
+import { enunciado1, publicaciones } from "./transferencia/index.js";
 import { eliminarPublicacion } from "./apropiacion/index.js";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
