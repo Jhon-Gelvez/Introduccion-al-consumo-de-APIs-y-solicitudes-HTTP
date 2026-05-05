@@ -1,11 +1,42 @@
-import { usuario, usuarios, posts, post, comment, actualizarPostPATCH, actualizarPostPUT, eliminarPublicacion } from "./apropiacion/index.js";
-import { enunciado1, publicaciones } from "./transferencia/index.js";
+import {
+     usuario,
+     usuarios,
+     posts, 
+     post, 
+     comment, 
+     actualizarPostPATCH, 
+     actualizarPostPUT, 
+     eliminarPublicacion,
+     obtenerPublicacion,
+     obtenerPublicaciones
+    } from "./apropiacion/index.js";
+import { 
+    enunciado1, 
+    publicaciones 
+} from "./transferencia/index.js";
+
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 
 const rl = readline.createInterface({ input, output });
 
 // APROPIACION
+
+try {
+    const data = await obtenerPublicaciones();
+    console.log(data);
+} catch (error) {
+    console.error(error);
+}
+
+try {
+    const id = await rl.question("Ingrese el ID de la publicación a consultar: ");
+    const data = await obtenerPublicacion(id);
+    console.log(data);
+} catch (error) {
+    console.error(error);
+}
+
 
 try {
     const id = await rl.question("Ingrese el ID de la publicación a eliminar: ");
