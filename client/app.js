@@ -1,25 +1,13 @@
-import { 
-    usuario,
-    usuarios,
-    posts,
-    post,
-    comment,
-    actualizarPostPATCH,
-    actualizarPostPUT
-    } 
-from "./apropiacion/index.js";
+import { usuario, usuarios, posts, post, comment, actualizarPostPATCH, actualizarPostPUT } from "./apropiacion/index.js";
 
-import { 
-    enunciado1,
-    publicaciones
-    } 
-from "./transferencia/index.js";
-
+import { enunciado1, publicaciones } from "./transferencia/index.js";
 
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 
 const rl = readline.createInterface({ input, output });
+
+// APROPIACION
 
 try {
     const data = await usuarios();
@@ -63,33 +51,41 @@ try {
     console.error(error);
 }
 
+// TRANSFERENCIA
+
 try {
-    enunciado1()
+    await enunciado1();
 } catch (error) {
-    console.error(error)
+    console.error(error);
 }
 
 try {
-    publicaciones()
+    await publicaciones();
 } catch (error) {
-    console.error(error)
+    console.error(error);
 }
 
-const ejecutar = async () => {
-    try {
-        const postId = await rl.question("Ingrese el ID del post: ");
-        const nombre = await rl.question("Ingrese el nombre: ");
-        const comentario = await rl.question("Ingrese el comentario: ");
+try {
+    const id = await rl.question("Ingrese el ID del post a actualizar: ");
+    const userId = await rl.question("Ingrese el ID del usuario: ");
+    const title = await rl.question("Ingrese el nuevo título: ");
+    const body = await rl.question("Ingrese el nuevo contenido: ");
 
-        const data = await comment(postId, nombre, comentario);
-        console.log(data);
+    const data = await actualizarPostPUT(id, userId, title, body);
+    console.log(data);
+} catch (error) {
+    console.error("Error al actualizar el post con PUT:", error);
+}
 
-    } catch (error) {
-        console.error(error);
-    }
-};
+try {
+    const id = await rl.question("Ingrese el ID del post a modificar (PATCH): ");
+    const nuevoTitulo = await rl.question("Ingrese el nuevo título para el post: ");
+    const campo = { title: nuevoTitulo };
 
+    const data = await actualizarPostPATCH(id, campo);
+    console.log(data);
+} catch (error) {
+    console.error(error);
+}
 
 rl.close();
-
-
